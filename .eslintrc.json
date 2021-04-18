@@ -11,7 +11,7 @@
         "es6": true
     },
     "rules": {
-        "no-var": "error",
+        // "no-var": "error",
         "eqeqeq": [
             "error",
             "always"
@@ -26,14 +26,14 @@
             "warn",
             "single"
         ],
-        "no-multi-spaces": [
-            "warn",
-            {
-                "exceptions": {
-                    "VariableDeclarator": true
-                }
-            }
-        ],
+        // "no-multi-spaces": [
+        //     "warn",
+        //     {
+        //         "exceptions": {
+        //             "VariableDeclarator": true
+        //         }
+        //     }
+        // ],
         "no-trailing-spaces": "warn",
         "new-cap": "warn",
         "no-redeclare": [
