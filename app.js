@@ -5,6 +5,10 @@ var allClicks = 0;
 var rightPic;
 var leftPic;
 var middlePic;
+var productName = [];
+var prevProduct = [];
+var numbOfViews = [];
+var numOfClicks = [];
 // console.log(allProducts);
 function Productes(name, path) {
     this.name = name;
@@ -12,6 +16,7 @@ function Productes(name, path) {
     this.clicks = 0;
     this.views = 0;
     allProducts.push(this);
+    productName.push(this.name);
 }
 new Productes('bag', 'images/bag.jpg');
 new Productes('banana', 'images/banana.jpg');
@@ -48,12 +53,44 @@ function choosePicture() {
     while (rightPic === leftPic || rightPic === middlePic) {
         rightPic = randomPic();
     }
-    let leftPicPath = allProducts[leftPic].path;
-    let middlePicPath = allProducts[middlePic].path;
-    let rightPicPath = allProducts[rightPic].path;
+
     let leftElement = document.getElementById('left-product');
     let middleElement = document.getElementById('mid-product');
     let rightElement = document.getElementById('right-product');
+
+    for (var i = 0; i < prevProduct.length; i++) {
+        if (leftPic === prevProduct[i]) {
+            var newOne = randomPic();
+            leftPic = newOne;
+            prevProduct[0] = leftPic;
+        }
+    }
+    for (var y = 0; y < prevProduct.length; y++) {
+        if (middlePic === prevProduct[y]) {
+            var newOnee = randomPic();
+            middlePic = newOnee;
+            prevProduct[1] = newOnee;
+        }
+    }
+    for (var z = 0; z < prevProduct.length; z++) {
+        if (rightPic === prevProduct[z]) {
+            var newoneee = randomPic();
+            rightPic = newoneee;
+            prevProduct[2] = newoneee;
+        }
+    }
+    while (leftPic === middlePic || leftPic === rightPic) {
+        leftPic = randomPic();
+    }
+    while (rightPic === leftPic || rightPic === middlePic) {
+        rightPic = randomPic();
+    }
+    prevProduct[0] = leftPic;
+    prevProduct[1] = middlePic;
+    prevProduct[2] = rightPic;
+    let leftPicPath = allProducts[leftPic].path;
+    let middlePicPath = allProducts[middlePic].path;
+    let rightPicPath = allProducts[rightPic].path;
     allProducts[leftPic].views += 1;
     allProducts[middlePic].views += 1;
     allProducts[rightPic].views += 1;
@@ -63,6 +100,7 @@ function choosePicture() {
 
 }
 choosePicture();
+
 main.addEventListener('click', numberOfClicks);
 function numberOfClicks(event) {
     if (allClicks < 25) {
@@ -83,8 +121,12 @@ function numberOfClicks(event) {
             allProducts[rightPic].clicks += 1;
         }
         choosePicture();
+
     }
     else {
+        shearMyData();
+
+        chartgenerator();
         // Massege();
         main.removeEventListener('click', numberOfClicks);
     }
@@ -103,7 +145,59 @@ function Massege() {
     for (let i = 0; i < allProducts.length; i++) {
         let li = document.createElement('li');
         finalResults.appendChild(li);
+        li.classList.add('pointer');
         li.textContent = allProducts[i].name + ' had ' + allProducts[i].clicks + ' votes and was shown ' + allProducts[i].views;
     }
 }
+// var myChart = new Chart(
+//     document.getElementById('myChart'),
+//     config
+//   );
+function shearMyData() {
+    for (let index = 0; index < allProducts.length; index++) {
+        numOfClicks.push(allProducts[index].clicks);
+        numbOfViews.push(allProducts[index].views);
 
+    }
+}
+function chartgenerator() {
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: productName,
+            datasets: [{
+                label: '# of Views',
+                data: numbOfViews,
+                backgroundColor: ['rgb(102, 195, 255)',
+                ],
+                borderColor: 'orange',
+                borderWidth: 1
+            }, {
+                label: '# of Votes',
+                data: numOfClicks,
+                backgroundColor: [
+                    'rgb(235, 64, 52)',
+                ],
+                borderColor: 'orange',
+                borderWidth: 1
+            }]
+        }
+
+    })
+    // var ctx = document.getElementById('myChart').getContext('2d');
+    // var myChart = new Chart(ctx, {
+    //     type: 'bar',
+    //     data: {
+    //         labels: productName,
+    //         datasets: [{
+    //             label: '# of Votes',
+    //             data: numOfClicks,
+    //             backgroundColor: 'rgb(102, 195, 255)',
+    //             borderColor: 'orange',
+    //             borderWidth: 1
+    //         }]
+    //     },
+
+    // });
+}
