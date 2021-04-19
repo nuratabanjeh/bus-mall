@@ -85,7 +85,7 @@ function numberOfClicks(event) {
         choosePicture();
     }
     else {
-        Massege();
+        // Massege();
         main.removeEventListener('click', numberOfClicks);
     }
 }
