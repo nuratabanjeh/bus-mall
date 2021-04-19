@@ -90,6 +90,13 @@ function numberOfClicks(event) {
     }
 }
 
+let button = document.getElementById('btn');
+button.addEventListener('click', showinglist);
+function showinglist() {
+    Massege();
+    button.removeEventListener('click', showinglist);
+}
+
 function Massege() {
     let finalResults = document.getElementById('customerChoise');
 
