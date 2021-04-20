@@ -1,75 +1,191 @@
-a{
-    position: relative;
-    bottom: 30px;
-    font-size: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(102, 195, 255);
-    text-align: center;
-}
-body{
-    background-color: rgb(89, 93, 99);
-}
-nav{
-    color: rgb(102, 195, 255);
-    text-align: center;
-}
-header nav ul {
-    list-style: none;
-  }
-  header nav ul li {
-      color: rgb(102, 195, 255);
-    display: inline-block;
-    padding: 10px;  
-}
-header nav ul li a {
-    color: rgb(102, 195, 255);
-    text-decoration: none;
-  }
-main section img{
-    width: 30%;
-    float: right;
-      margin-top: 100px;
-      margin-right: 50px;
-  }
-  main section{
-      text-align: center;
-  }
-  div li {
-      padding-top: 5px;
-  }
-  div{
-      position: relative;
-      bottom: 100px;
-      margin-right: 300px;
-      color: rgb(102, 195, 255);
-      margin: 80px 80px 80px 80px;
-  }
-  .pointer {
-    cursor: pointer;
-  }
-  .lorem{
-    color: rgb(102, 195, 255);
-      position: absolute;
-      padding: 100px;
-     top: 300px;
-     left: 500px;
-    flex-flow: wrap;
-  }
 
- aside{
-     display: inline;
-     float: right;
-     padding: 20px 20px;
-     margin-right: 100px;
- }
- footer{
-     background-color: gray;
-     position: absolute;
-     padding: 50px 615px;
-     color: rgb(102, 195, 255);
-     display: inline;
-     top:620px;
- }
- h2{
-     text-align: right;
- }
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
+
+header {
+    display: inline-block;
+    font-family: 'Original Surfer', cursive;
+   width: 100%;
+   border-radius: 25px;
+   background-color: #fbf07b;
+   
+   
+
+    
+}
+header h1{
+    margin-left: 100px;
+    padding: 10px;
+    display: inline-block;
+}
+ul{
+    color: black;
+    text-align: center;
+    list-style-type: circle;
+    width: 700px;
+}
+nav {
+    float: right;
+
+    
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 100px;
+    margin-top: 20px;
+   
+}
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    margin-top: 20px;
+    font-family: 'Original Surfer', cursive;
+    
+}
+nav li  :hover{
+    background-color: black;
+    color: blanchedalmond;
+    border-radius: 25px;
+    padding: 10px;
+   
+    
+}
+#all_products img {
+    display: inline-block;
+    border-radius: 25%;
+    border-width: 1;
+    
+
+margin-top: 50px;
+margin-left: 200px;
+
+}
+#all_products img:hover{
+    -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+        box-shadow: 0 0 5px rgba(151, 144, 74, 0.486),
+        0 0 25px rgba(151, 144, 74, 0.486),
+        0 0 50px rgba(151, 144, 74, 0.486),
+        0 0 100px rgba(151, 144, 74, 0.486);
+
+}
+#customerChoise{
+    width: fit-content;
+    background-color: rgb(126,93,79,0.2);
+    margin-top: 30px;
+    /* margin-left: 550px; */
+    border-radius: 25px;
+    width: 300px;
+    
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+        flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  /*   padding: 2em 0em; */
+  }
+  
+  .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #FFF;
+    padding:  40px 0px;
+    width: 240px;
+  }
+  
+  h1 {
+    text-align: left;
+    color: #444;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.4em;
+    font-size: 1em;
+  }
+  
+  p {
+    text-align: left;
+    color: #444;
+    letter-spacing: 0.05em;
+    font-size: 0.8em;
+    margin: 0 0 2em;
+  }
+  
+  
+  .btn {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .btn:hover {
+    text-decoration: none;
+    box-shadow: 0 0 5px rgba(151, 144, 74, 0.486),
+    0 0 25px rgba(151, 144, 74, 0.486),
+    0 0 50px rgba(151, 144, 74, 0.486),
+    0 0 100px rgba(151, 144, 74, 0.486);
+
+  }
+  
+  /*btn_background*/
+  .effect04 {
+    --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
+    display: var(--uismLinkDisplay);
+    color: #000;
+    outline: solid  2px #000;
+    position: relative;
+    transition-duration: 0.4s;
+    overflow: hidden;
+  }
+  
+  .effect04::before,
+  .effect04 span{
+      margin: 0 auto;
+      transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+      transition-duration: 0.4s;
+  }
+  
+  /* 文字1を上に */
+  .effect04:hover{
+  
+    background-color: #fbf07b;
+  }
+  
+  /* HOVERしたら文字1を上に */
+  .effect04:hover span{
+    -webkit-transform: translateY(-400%) scale(-0.1,20);
+            transform: translateY(-400%) scale(-0.1,20);
+  }
+  
+  /*文字2*/
+  .effect04::before{
+    content: attr(data-sm-link-text);
+      color: #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transform: translateY(500%) scale(-0.1,20);
+            transform: translateY(500%) scale(-0.1,20);
+  }
+  
+  /* HOVERしたら文字2を上に */
+  .effect04:hover::before{
+    letter-spacing: 0.05em;
+    -webkit-transform: translateY(0) scale(1,1);
+            transform: translateY(0) scale(1,1);
+  }
+  
