@@ -127,7 +127,7 @@ function numberOfClicks(event) {
         shearMyData();
 
         chartgenerator();
-        // Massege();
+        savingData();
         main.removeEventListener('click', numberOfClicks);
     }
 }
@@ -137,7 +137,24 @@ button.addEventListener('click', showinglist);
 function showinglist() {
     Massege();
     button.removeEventListener('click', showinglist);
+
 }
+
+function savingData() {
+    console.log(allProducts);
+    var stringPro = JSON.stringify(allProducts);
+    localStorage.setItem('product', stringPro);
+}
+
+function savingNewOne() {
+    var prePro = JSON.parse(localStorage.getItem('product'));
+    if (prePro !== null) {
+        allProducts = prePro;
+    }
+
+}
+savingNewOne();
+
 
 function Massege() {
     let finalResults = document.getElementById('customerChoise');
@@ -149,10 +166,6 @@ function Massege() {
         li.textContent = allProducts[i].name + ' had ' + allProducts[i].clicks + ' votes and was shown ' + allProducts[i].views;
     }
 }
-// var myChart = new Chart(
-//     document.getElementById('myChart'),
-//     config
-//   );
 function shearMyData() {
     for (let index = 0; index < allProducts.length; index++) {
         numOfClicks.push(allProducts[index].clicks);
@@ -185,19 +198,4 @@ function chartgenerator() {
         }
 
     })
-    // var ctx = document.getElementById('myChart').getContext('2d');
-    // var myChart = new Chart(ctx, {
-    //     type: 'bar',
-    //     data: {
-    //         labels: productName,
-    //         datasets: [{
-    //             label: '# of Votes',
-    //             data: numOfClicks,
-    //             backgroundColor: 'rgb(102, 195, 255)',
-    //             borderColor: 'orange',
-    //             borderWidth: 1
-    //         }]
-    //     },
-
-    // });
 }
